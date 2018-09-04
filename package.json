@@ -1,0 +1,21 @@
+{
+  "name": "duhansgram",
+  "version": "1.0.0",
+  "description": "Social media dashboard using Single Page Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "social",
+    "media",
+    "single",
+    "page",
+    "application"
+  ],
+  "author": "Andriannus Parasian",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
