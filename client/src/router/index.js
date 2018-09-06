@@ -3,13 +3,11 @@ import Router from 'vue-router';
 import Header from '@/components/Header';
 import Home from '@/components/Home';
 import Users from '@/components/Users';
-import User from '@/components/User';
 import UserPosts from '@/components/UserPosts';
 import UserAlbums from '@/components/UserAlbums';
 import Posts from '@/components/Posts';
 import Post from '@/components/Post';
 import Albums from '@/components/Albums';
-import Album from '@/components/Album';
 import AlbumPhotos from '@/components/AlbumPhotos';
 import Photos from '@/components/Photos';
 import Photo from '@/components/Photo';
@@ -43,14 +41,6 @@ export default new Router({
           component: Users,
           meta: {
             title: 'List of Users',
-          },
-        },
-        {
-          path: ':id',
-          name: 'user',
-          component: User,
-          meta: {
-            title: 'User Profile',
           },
         },
         {
@@ -103,14 +93,6 @@ export default new Router({
           component: Albums,
           meta: {
             title: 'List of Albums',
-          },
-        },
-        {
-          path: ':id',
-          name: 'album',
-          component: Album,
-          meta: {
-            title: 'Album Details',
           },
         },
         {
