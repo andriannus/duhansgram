@@ -1,14 +1,14 @@
 <template>
-<div>
+<v-container>
   <h1>Home</h1>
-</div>
+</v-container>
 </template>
 
 <script>
 export default {
   name: 'Home',
   metaInfo: {
-    title: 'Welcome to Duhansgram',
+    title: 'Home',
   },
 
   data: () => ({

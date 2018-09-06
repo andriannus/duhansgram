@@ -22,7 +22,7 @@ import Navigation from './Navigation';
 export default {
   name: 'Header',
   metaInfo: {
-    title: 'Selamat Datang di Lemari Buku',
+    titleTemplate: '%s - Duhansgram',
   },
 
   data: () => ({

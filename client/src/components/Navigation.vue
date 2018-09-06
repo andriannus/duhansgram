@@ -3,7 +3,7 @@
   <v-toolbar app fixed>
     <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
 
-    <v-toolbar-title>{{ name }}</v-toolbar-title>
+    <v-toolbar-title>{{ title }}</v-toolbar-title>
   </v-toolbar>
 
   <v-navigation-drawer
@@ -23,7 +23,7 @@
     <v-divider></v-divider>
 
     <v-list dense>
-      <v-list-tile to="/" @click="setName">
+      <v-list-tile to="/" @click="setTitle">
         <v-list-tile-action>
           <v-icon>mdi-view-dashboard</v-icon>
         </v-list-tile-action>
@@ -32,7 +32,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/users" @click="setName">
+      <v-list-tile to="/users" @click="setTitle">
         <v-list-tile-action>
           <v-icon>mdi-account-group</v-icon>
         </v-list-tile-action>
@@ -41,7 +41,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/posts" @click="setName">
+      <v-list-tile to="/posts" @click="setTitle">
         <v-list-tile-action>
           <v-icon>mdi-library-books</v-icon>
         </v-list-tile-action>
@@ -50,7 +50,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/albums" @click="setName">
+      <v-list-tile to="/albums" @click="setTitle">
         <v-list-tile-action>
           <v-icon>mdi-image-album</v-icon>
         </v-list-tile-action>
@@ -59,7 +59,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/photos" @click="setName">
+      <v-list-tile to="/photos" @click="setTitle">
         <v-list-tile-action>
           <v-icon>mdi-image-multiple</v-icon>
         </v-list-tile-action>
@@ -76,16 +76,17 @@
 export default {
   data: () => ({
     drawer: false,
-    name: '',
+    title: '',
   }),
 
   mounted() {
-    this.setName();
+    this.setTitle();
+    this.$root.$watch(this.setTitle);
   },
 
   methods: {
-    setName() {
-      this.name = this.$route.name;
+    setTitle() {
+      this.title = this.$route.meta.title;
     },
   },
 };
