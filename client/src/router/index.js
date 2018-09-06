@@ -27,6 +27,9 @@ export default new Router({
           path: '',
           name: 'Home',
           component: Home,
+          meta: {
+            title: 'Duhansgram Dashboard',
+          },
         },
       ],
     },
@@ -38,21 +41,33 @@ export default new Router({
           path: '',
           name: 'users',
           component: Users,
+          meta: {
+            title: 'List of Users',
+          },
         },
         {
           path: ':id',
           name: 'user',
           component: User,
+          meta: {
+            title: 'User Profile',
+          },
         },
         {
           path: ':id/posts',
-          name: '',
+          name: 'user-posts',
           component: UserPosts,
+          meta: {
+            title: 'List of User Posts',
+          },
         },
         {
           path: ':id/albums',
           name: 'user-albums',
           component: UserAlbums,
+          meta: {
+            title: 'List of User Albums',
+          },
         },
       ],
     },
@@ -64,11 +79,17 @@ export default new Router({
           path: '',
           name: 'posts',
           component: Posts,
+          meta: {
+            title: 'List of Posts',
+          },
         },
         {
           path: ':id',
           name: 'post',
           component: Post,
+          meta: {
+            title: 'Post Details',
+          },
         },
       ],
     },
@@ -80,16 +101,25 @@ export default new Router({
           path: '',
           name: 'albums',
           component: Albums,
+          meta: {
+            title: 'List of Albums',
+          },
         },
         {
           path: ':id',
           name: 'album',
           component: Album,
+          meta: {
+            title: 'Album Details',
+          },
         },
         {
           path: ':id/photos',
           name: 'album-photos',
           component: AlbumPhotos,
+          meta: {
+            title: 'List of Photos from the Album',
+          },
         },
       ],
     },
@@ -101,11 +131,17 @@ export default new Router({
           path: '',
           name: 'photos',
           component: Photos,
+          meta: {
+            title: 'List of Photos',
+          },
         },
         {
           path: ':id',
           name: 'photo',
           component: Photo,
+          meta: {
+            title: 'Photo Details',
+          },
         },
       ],
     },
