@@ -9,9 +9,7 @@
       <v-card flat tile hover class="d-flex" :to="{ path: `/photos/${album.id}` }">
         <v-img
           :src="album.thumbnailUrl"
-          :lazy-src="'https://dummyimage.com/150x150/000000/ffffff.gif&text=+'"
-          aspect-ratio="1"
-          class="grey lighten-2"
+          class="grey darken-3"
         >
           <v-layout
             slot="placeholder"
@@ -26,6 +24,13 @@
       </v-card>
     </v-flex>
   </v-layout>
+
+  <v-snackbar
+    top
+    right
+    :timeout="2000"
+    v-model="snackbar"
+  >{{ text }}</v-snackbar>
 </v-container>
 </template>
 
@@ -38,6 +43,8 @@ export default {
 
   data: () => ({
     albums: [],
+    text: '',
+    snackbar: false,
   }),
 
   mounted() {
@@ -52,8 +59,9 @@ export default {
         .then((res) => {
           this.albums = res.data;
         })
-        .catch((err) => {
-          //
+        .catch(() => {
+          this.snackbar = true;
+          this.text = 'Error occurred. Please refresh the page';
         });
     },
   },

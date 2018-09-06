@@ -15,7 +15,7 @@
     :key="index"
     two-line
   >
-    <v-list-tile :to="{ path: '/posts/' + post.id }">
+    <v-list-tile :to="{ path: `/posts/${post.id}` }">
       <v-list-tile-avatar>
         <v-icon>mdi-book</v-icon>
       </v-list-tile-avatar>
@@ -25,6 +25,13 @@
       </v-list-tile-content>
     </v-list-tile>
   </v-list>
+
+  <v-snackbar
+    top
+    right
+    :timeout="2000"
+    v-model="snackbar"
+  >{{ text }}</v-snackbar>
 </v-container>
 </template>
 
@@ -39,6 +46,8 @@ export default {
 
   data: () => ({
     posts: [],
+    text: '',
+    snackbar: false,
     isLoading: false,
   }),
 
@@ -58,8 +67,9 @@ export default {
           this.posts = res.data;
           this.isLoading = false;
         })
-        .catch((err) => {
-          //
+        .catch(() => {
+          this.snackbar = true;
+          this.text = 'Error occurred. Please refresh the page';
         });
     },
   },

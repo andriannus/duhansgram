@@ -58,18 +58,25 @@
           <v-btn
             flat
             color="primary"
-            :to="{ path: '/users/' + user.id + '/posts' }"
+            :to="{ path: `/users/${user.id}/posts` }"
           >View Posts</v-btn>
 
           <v-btn
             flat
             color="success"
-            :to="{ path: '/users/' + user.id + '/albums' }"
+            :to="{ path: `/users/${user.id}/albums` }"
           >View Albums</v-btn>
         </v-card-actions>
       </v-card>
     </v-expansion-panel-content>
   </v-expansion-panel>
+
+  <v-snackbar
+    top
+    right
+    :timeout="2000"
+    v-model="snackbar"
+  >{{ text }}</v-snackbar>
 </v-container>
 </template>
 
@@ -84,6 +91,8 @@ export default {
 
   data: () => ({
     users: [],
+    text: '',
+    snackbar: false,
     isLoading: false,
   }),
 
@@ -100,8 +109,9 @@ export default {
           this.users = res.data;
           this.isLoading = false;
         })
-        .catch((err) => {
-          // console.log(err);
+        .catch(() => {
+          this.snackbar = true;
+          this.text = 'Error occurred. Please refresh the page';
         });
     },
   },

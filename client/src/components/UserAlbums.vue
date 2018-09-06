@@ -14,7 +14,7 @@
     v-for="(album, index) in albums"
     :key="index"
   >
-    <v-list-tile :to="{ path: '/albums/' + album.id + '/photos' }">
+    <v-list-tile :to="{ path: `/albums/${album.id}/photos` }">
       <v-list-tile-avatar>
         <v-icon>mdi-image-album</v-icon>
       </v-list-tile-avatar>
@@ -23,6 +23,13 @@
       </v-list-tile-content>
     </v-list-tile>
   </v-list>
+
+  <v-snackbar
+    top
+    right
+    :timeout="2000"
+    v-model="snackbar"
+  >{{ text }}</v-snackbar>
 </v-container>
 </template>
 
@@ -37,6 +44,8 @@ export default {
 
   data: () => ({
     albums: [],
+    text: '',
+    snackbar: false,
     isLoading: false,
   }),
 
@@ -52,11 +61,11 @@ export default {
       this.axios.get(`users/${id}/albums`)
         .then((res) => {
           this.albums = res.data;
-
           this.isLoading = false;
         })
-        .catch((err) => {
-          //
+        .catch(() => {
+          this.snackbar = true;
+          this.text = 'Error occurred. Please refresh the page';
         });
     },
   },
