@@ -2,13 +2,14 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import Vuetify from 'vuetify';
+import VueAxios from 'vue-axios';
 import axios from 'axios';
 import Meta from 'vue-meta';
 import App from './App';
 import router from './router';
 
 Vue.use(Vuetify);
-Vue.use(axios);
+Vue.use(VueAxios, axios);
 Vue.use(Meta);
 
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com/';
