@@ -11,6 +11,7 @@ import Albums from '@/components/Albums';
 import AlbumPhotos from '@/components/AlbumPhotos';
 import Photos from '@/components/Photos';
 import Photo from '@/components/Photo';
+import NotFound from '@/components/NotFound';
 
 Vue.use(Router);
 
@@ -18,12 +19,17 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '*',
+      name: 'not-found',
+      component: NotFound,
+    },
+    {
       path: '/',
       component: Header,
       children: [
         {
           path: '',
-          name: 'Home',
+          name: 'home',
           component: Home,
           meta: {
             title: 'Duhansgram Dashboard',
