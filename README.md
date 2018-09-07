@@ -3,8 +3,8 @@
 
 ## Tools
 1. Node.js
-2. Express.js
-3. Vue
+2. Express
+3. Vue.js
 4. Vuetify
 
 ## API
