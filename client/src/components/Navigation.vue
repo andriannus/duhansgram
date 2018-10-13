@@ -23,7 +23,7 @@
     <v-divider></v-divider>
 
     <v-list dense>
-      <v-list-tile to="/" @click="setTitle">
+      <v-list-tile to="/" @click="setTitle()">
         <v-list-tile-action>
           <v-icon>mdi-view-dashboard</v-icon>
         </v-list-tile-action>
@@ -32,7 +32,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/users" @click="setTitle">
+      <v-list-tile to="/users" @click="setTitle()">
         <v-list-tile-action>
           <v-icon>mdi-account-group</v-icon>
         </v-list-tile-action>
@@ -41,7 +41,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/posts" @click="setTitle">
+      <v-list-tile to="/posts" @click="setTitle()">
         <v-list-tile-action>
           <v-icon>mdi-library-books</v-icon>
         </v-list-tile-action>
@@ -50,7 +50,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/albums" @click="setTitle">
+      <v-list-tile to="/albums" @click="setTitle()">
         <v-list-tile-action>
           <v-icon>mdi-image-album</v-icon>
         </v-list-tile-action>
@@ -59,7 +59,7 @@
         </v-list-tile-content>
       </v-list-tile>
 
-      <v-list-tile to="/photos" @click="setTitle">
+      <v-list-tile to="/photos" @click="setTitle()">
         <v-list-tile-action>
           <v-icon>mdi-image-multiple</v-icon>
         </v-list-tile-action>
